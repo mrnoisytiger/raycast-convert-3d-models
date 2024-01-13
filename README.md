@@ -8,11 +8,13 @@ Convert between various NURBS and mesh 3D model formats, such as STEP, STL, OBJ,
   * All conversions powered by [FreeCAD](https://www.freecad.org/index.php)'s powerful OpenCascade engine
 * Convert from NURBS -> Mesh and Mesh -> NURBS
 
+![Image](metadata/2.png)
+
 ## Installation
 
 This extension relies on having [FreeCAD](https://www.freecad.org/) installed on the machine. You will be prompted to specify the path that FreeCAD is installed.
 
-![Image](1.png)
+![Image](metadata/1.png)
 
 ### Installation through Web
 
