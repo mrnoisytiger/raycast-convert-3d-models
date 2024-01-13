@@ -55,7 +55,7 @@ const getSelectedFinderModels = async (): Promise<string> => {
 };
 
 /**
- * Gets currently selected models in Path Finder.
+ * Gets currently selected models in Path Finder. Untested, but pulled from SIPS so presumed working.
  *
  * @returns A promise resolving to the comma-separated list of models as a string.
  */
