@@ -98,17 +98,17 @@ const getSelectedPathFinderModels = async (): Promise<string> => {
 export const cleanup = async () => {
   // Get the list of items to remove from local storage
   const itemsToRemove = (await LocalStorage.getItem("itemsToRemove")) ?? "";
-  
+
   // Split the list into an array of items
   const itemsToRemoveArray = itemsToRemove.toString().split(", ");
-  
+
   // Iterate over each item and remove it if it exists
   for (const item of itemsToRemoveArray) {
     if (fs.existsSync(item)) {
       await fs.promises.rm(item);
     }
   }
-  
+
   // Remove the list of items from local storage
   await LocalStorage.removeItem("itemsToRemove");
 };
