@@ -93,16 +93,23 @@ const getSelectedPathFinderModels = async (): Promise<string> => {
 /**
  * Cleans up temporary files created by the extension.
  *
- * @returns A promise resolving when the cleanup is complete.
+ * @returns {Promise<void>} A promise resolving when the cleanup is complete.
  */
 export const cleanup = async () => {
+  // Get the list of items to remove from local storage
   const itemsToRemove = (await LocalStorage.getItem("itemsToRemove")) ?? "";
+  
+  // Split the list into an array of items
   const itemsToRemoveArray = itemsToRemove.toString().split(", ");
+  
+  // Iterate over each item and remove it if it exists
   for (const item of itemsToRemoveArray) {
     if (fs.existsSync(item)) {
       await fs.promises.rm(item);
     }
   }
+  
+  // Remove the list of items from local storage
   await LocalStorage.removeItem("itemsToRemove");
 };
 
@@ -112,14 +119,14 @@ export const cleanup = async () => {
  * @returns A promise resolving to the list of selected model paths.
  */
 export const getSelectedModels = async (): Promise<string[]> => {
+  // Initialize an empty array to store the selected model paths
   const selectedModels: string[] = [];
 
-  // Get name of preferred file manager
-  const extensionPreferences = getPreferenceValues<ExtensionPreferences>();
-  const inputMethod = extensionPreferences.inputMethod;
-  let inputMethodError = false;
+  // Get the preferences from the extension
+  const preferences = getPreferenceValues<ExtensionPreferences>();
+  const inputMethod = preferences.inputMethod;
 
-  // Get name of frontmost application
+  // Get the name of the frontmost application
   let activeApp = inputMethod;
   try {
     activeApp = (await getFrontmostApplication()).name;
@@ -127,36 +134,36 @@ export const getSelectedModels = async (): Promise<string[]> => {
     console.error("Couldn't get frontmost application");
   }
 
-  // Attempt to get selected models from Path Finder
-  try {
-    if (activeApp == "Path Finder" && inputMethod == "Path Finder") {
-      const pathFinderModels = (await getSelectedPathFinderModels()).split(", ");
-      pathFinderModels.forEach((imgPath) => {
-        if (!selectedModels.includes(imgPath)) {
-          selectedModels.push(imgPath);
-        }
-      });
-      return selectedModels;
-    }
-  } catch (error) {
-    // Error getting models from Path Finder, fall back to Finder
-    console.error("Couldn't get models from Path Finder");
-    inputMethodError = true;
-  }
-
-  // Get selected models from Finder -- use as fallback for desktop selections & on error
-  const finderModels = (await getSelectedFinderModels()).split(", ");
-  if (activeApp == "Finder" || inputMethod == "Finder" || inputMethodError) {
-    selectedModels.push(...finderModels);
-  } else {
-    // Add desktop selections
-    finderModels.forEach((imgPath) => {
-      if (imgPath.split("/").at(-2) == "Desktop" && !selectedModels.includes(imgPath)) {
-        selectedModels.push(imgPath);
+  // Check the active application and retrieve the selected models accordingly
+  switch (activeApp) {
+    case "Path Finder":
+      // Untested because I don't use Path Finder
+      // If the active application is Path Finder and the input method is also Path Finder,
+      // retrieve the selected models using the appropriate function and add them to the selectedModels array
+      if (inputMethod === "Path Finder") {
+        const pathFinderModels = (await getSelectedPathFinderModels()).split(", ");
+        selectedModels.push(...pathFinderModels);
       }
-    });
+      break;
+    case "Finder":
+      // If the active application is Finder,
+      // retrieve the selected models using the appropriate function and add them to the selectedModels array
+      const finderModels = (await getSelectedFinderModels()).split(", ");
+      selectedModels.push(...finderModels);
+
+      // If the input method is not Finder,
+      // check if the model path belongs to the Desktop directory and add it to the selectedModels array if it's not already included
+      if (inputMethod !== "Finder") {
+        finderModels.forEach((modelPath) => {
+          if (modelPath.split("/").at(-2) === "Desktop" && !selectedModels.includes(modelPath)) {
+            selectedModels.push(modelPath);
+          }
+        });
+      }
+      break;
   }
 
+  // Return the list of selected model paths
   return selectedModels;
 };
 
