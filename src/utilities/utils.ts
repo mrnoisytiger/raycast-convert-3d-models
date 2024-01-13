@@ -145,7 +145,7 @@ export const getSelectedModels = async (): Promise<string[]> => {
         selectedModels.push(...pathFinderModels);
       }
       break;
-    case "Finder":
+    case "Finder": {
       // If the active application is Finder,
       // retrieve the selected models using the appropriate function and add them to the selectedModels array
       const finderModels = (await getSelectedFinderModels()).split(", ");
@@ -161,6 +161,7 @@ export const getSelectedModels = async (): Promise<string[]> => {
         });
       }
       break;
+    }
   }
 
   // Return the list of selected model paths
