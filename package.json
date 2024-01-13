@@ -6,7 +6,7 @@
   "icon": "extension_icon.png",
   "author": "mrnoisytiger",
   "categories": [
-    "Design",
+    "Design Tools",
     "Productivity",
     "Other"
   ],
@@ -66,6 +66,7 @@
     {
       "name": "convert",
       "title": "Convert Models...",
+      "subtitle": "Convert 3D models files"
       "description": "Convert the selected model to the specified format.",
       "mode": "view",
       "preferences": [
