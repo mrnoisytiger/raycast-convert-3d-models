@@ -65,7 +65,7 @@ export default function Command() {
   };
 
   return (
-    <List searchBarPlaceholder="Search model converrsions...">
+    <List searchBarPlaceholder="Search model conversions...">
       <List.EmptyView
         title="No Formats Enabled"
         description="Enable formats in the command preferences (⌘⇧,)"

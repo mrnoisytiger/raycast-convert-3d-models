@@ -32,7 +32,6 @@ export interface ExtensionPreferences {
     showSTL: boolean;
     showOBJ: boolean;
     show3MF: boolean;
-    show3MF: boolean;
     showIGS: boolean;
     showX3D: boolean;
     showX3DZ: boolean;
