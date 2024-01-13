@@ -15,7 +15,7 @@ input_filename, input_ext = os.path.splitext(input_file)
 output_filename, output_ext = os.path.splitext(output_file)
 print(input_ext, " -> ", output_ext)
 
-mesh_formats = ['.stl', '.obj', '.3mf', '.x3d', '.x3dz'] # Define the formats that this script will attempt to do mesh-to-mesh conversion on. Not all formats are supported by FreeCAD
+mesh_formats = ['.3mf', '.amf', '.obj', '.off', '.ply', '.smf', '.stl', '.x3d', '.x3dz'] # Define the formats that this script will attempt to do mesh-to-mesh conversion on. Not all formats are supported by FreeCAD
 
 def main():
     shape = Part.Shape()

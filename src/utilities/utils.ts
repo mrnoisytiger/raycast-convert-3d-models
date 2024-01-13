@@ -25,7 +25,7 @@ import { ExtensionPreferences } from "./preferences";
  */
 const getSelectedFinderModels = async (): Promise<string> => {
   return runAppleScript(
-    `set modelTypes to {"STEP", "Standard Tesselated Geometry File Format", "Geometry Definition File Format", "IGES", "IGS", "X3D", "X3DZ"}
+    `set modelTypes to {"step", "stp", "stl", "obj", "off", "iges", "igs", "x3d", "x3dz", "amf", "3mf", "brep", "brp", "smf", "ply"}
 
     tell application "Finder"
       set theSelection to selection
@@ -33,7 +33,7 @@ const getSelectedFinderModels = async (): Promise<string> => {
         return
       else if (theSelection count) is equal to 1 then
         repeat with modelType in modelTypes
-          if (kind of the first item of theSelection) contains modelType then
+          if (name extension of the first item of theSelection) contains modelType then
             return the POSIX path of (theSelection as alias)
             exit repeat
           end if
@@ -42,7 +42,7 @@ const getSelectedFinderModels = async (): Promise<string> => {
         set thePaths to {}
         repeat with i from 1 to (theSelection count)
           repeat with modelType in modelTypes
-            if (kind of (item i of theSelection)) contains modelType then
+            if (name extension of (item i of theSelection)) contains modelType then
               copy (POSIX path of (item i of theSelection as alias)) to end of thePaths
               exit repeat
             end if
@@ -61,7 +61,7 @@ const getSelectedFinderModels = async (): Promise<string> => {
  */
 const getSelectedPathFinderModels = async (): Promise<string> => {
   return runAppleScript(
-    `set modelTypes to {"STEP", "Standard Tesselated Geometry File Format", "Geometry Definition File Format", "IGES", "IGS", "X3D", "X3DZ"}
+    `set modelTypes to {"step", "stp", "stl", "obj", "off", "iges", "igs", "x3d", "x3dz", "amf", "3mf", "brep", "brp", "smf", "ply"}
 
     tell application "Path Finder"
       set theSelection to selection
@@ -69,7 +69,7 @@ const getSelectedPathFinderModels = async (): Promise<string> => {
         return
       else if (theSelection count) is equal to 1 then
         repeat with modelType in modelTypes
-          if (kind of the first item of theSelection) contains modelType then
+          if (name extension of the first item of theSelection) contains modelType then
             return the POSIX path of first item of theSelection
             exit repeat
           end if
@@ -78,7 +78,7 @@ const getSelectedPathFinderModels = async (): Promise<string> => {
         set thePaths to {}
         repeat with i from 1 to (theSelection count)
           repeat with modelType in modelTypes
-            if (kind of (item i of theSelection)) contains modelType then
+            if (name extension of (item i of theSelection)) contains modelType then
               copy (POSIX path of (item i of theSelection)) to end of thePaths
               exit repeat
             end if
