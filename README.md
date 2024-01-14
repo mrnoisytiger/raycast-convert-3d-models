@@ -36,10 +36,6 @@ You can also use a package manager such as HomeBrew to keep your software update
 
 ```brew install freecad```
 
-## Warnings
-
-Warning: This extension is not compliant with the Terms of Service of FreeCAD. Use at your own risk.
-
 ## Thanks
 
 Special thanks to Stephen Kaplan <skaplanofficial@gmail.com> for creating [SIPS](https://github.com/raycast/extensions/tree/b415b8a9013e8569f788e5b7fc01a171a4f038d9/extensions/sips) on which this extension was heavily based.
