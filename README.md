@@ -1,6 +1,6 @@
 # Convert 3D Models
 
-Convert between various NURBS and mesh 3D model formats, such as STEP, STL, OBJ, and others.
+Convert between various NURBS/Parametric and mesh 3D model formats, such as STEP, STL, OBJ, and others.
 
 ## Features
 
