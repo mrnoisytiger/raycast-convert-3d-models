@@ -15,13 +15,7 @@ import {
   
   import convert from "./operations/convertOperation";
   import { cleanup, getSelectedModels, showErrorToast } from "./utilities/utils";
-  import { ConvertPreferences } from "./utilities/preferences";
   import { checkFreeCADInstallation } from "./utilities/checkinstall";
-  
-/**
- * All supported model formats for conversion.
- */
-const FORMATS = ["STL"];
 
 /**
  * Executes the Command function.
