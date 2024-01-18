@@ -1,6 +1,6 @@
 # Convert 3D Models Changelog
 
-## v1.0.1 - 2024-01-17
+## [Added Formats, Quick Convert, Contributing] - 2024-01-17
 
 * Added DAE (Collada) file export support
 * Added IV (Autodesk Inventor) file import and export support
