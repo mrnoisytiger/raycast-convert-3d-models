@@ -17,6 +17,10 @@ Effortlessly convert between various NURBS/Parametric and mesh 3D model formats,
   * Convert selected 3D model files from one format to another
 * Quick Convert to STL
   * Quickly convert the selected 3D models to STL
+* Quick Convert to OBJ
+  * Quickly convert the selected 3D models to OBJ
+* Quick Convert to STP
+  * Quickly convert the selected 3D models to STP
 
 ## Installation
 
