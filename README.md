@@ -5,8 +5,9 @@ Effortlessly convert between various NURBS/Parametric and mesh 3D model formats,
 ## Features
 
 * **Multiple Format Support**: Seamlessly convert across a range of 3D model formats such as STEP, STL, OBJ, IGS, and X3D.
-* **Powered by FreeCAD**: Leverage the robust OpenCascade engine of [FreeCAD](https://www.freecad.org/index.php) for all conversions.
+* **Powered by FreeCAD**: Leverage the robust [OpenCASCADE](https://wiki.freecad.org/OpenCASCADE) engine of [FreeCAD](https://www.freecad.org/index.php) for all conversions.
 * **NURBS and Mesh Conversion**: Easily transform NURBS models to Mesh formats and vice versa.
+* **Quick conversions to popular formats**: Quickly convert your models to popular formats with direct conversion commands.
 
 ![Conversion Options](metadata/2.png)
 
