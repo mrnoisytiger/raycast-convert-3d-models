@@ -8,7 +8,7 @@ Effortlessly convert between various NURBS/Parametric and mesh 3D model formats,
 * **Powered by FreeCAD**: Leverage the robust OpenCascade engine of [FreeCAD](https://www.freecad.org/index.php) for all conversions.
 * **NURBS and Mesh Conversion**: Easily transform NURBS models to Mesh formats and vice versa.
 
-![Installation Screen](metadata/2.png)
+![Conversion Options](metadata/2.png)
 
 ## Commands
 
@@ -17,11 +17,11 @@ Effortlessly convert between various NURBS/Parametric and mesh 3D model formats,
 * Quick Convert to STL
   * Quickly convert the selected 3D models to STL
 
-![Convert Options](metadata/1.png)
-
 ## Installation
 
 This extension relies on having [FreeCAD](https://www.freecad.org/) installed on the machine. You will be prompted to specify the path that FreeCAD is installed.
+
+![Splash Screen](metadata/1.png)
 
 It's recommended to open FreeCAD at least once after installation so that MacOS can verify the installation.
 
@@ -47,6 +47,8 @@ Alternatively, you can install FreeCAD using [Homebrew](https://brew.sh/), a pac
 ```shell
 brew install freecad
 ```
+
+---
 
 ## Thanks
 
